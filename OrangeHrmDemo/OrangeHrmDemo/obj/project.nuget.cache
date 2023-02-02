@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "v/uGw+Bi6D2xdCsgS87qRqmJc4fOD4x/YPEbl2kqrTbJZtKiD1qWDWk1+NKfjXow8uM1g8lscGGSgA+k58m/yQ==",
+  "dgSpecHash": "o6jOP2mCPkX+hW8wH1o4CvBi6f0scz1aGj23hkACkLuqDQnN77i/oYZadVlJdvA/imtKIrIHW3GxFG7YSYJcUw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Matome.Masiya\\Documents\\Coding\\Automation\\OrangeHrmDemoTestAutomationFramework\\OrangeHrmDemo\\OrangeHrmDemo\\OrangeHrmDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Matome.Masiya\\.nuget\\packages\\bodi\\1.5.0\\bodi.1.5.0.nupkg.sha512",
     "C:\\Users\\Matome.Masiya\\.nuget\\packages\\dotnetseleniumextras.pageobjects.core\\4.3.0\\dotnetseleniumextras.pageobjects.core.4.3.0.nupkg.sha512",
+    "C:\\Users\\Matome.Masiya\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
     "C:\\Users\\Matome.Masiya\\.nuget\\packages\\fluentassertions\\6.2.0\\fluentassertions.6.2.0.nupkg.sha512",
     "C:\\Users\\Matome.Masiya\\.nuget\\packages\\gherkin\\19.0.3\\gherkin.19.0.3.nupkg.sha512",
     "C:\\Users\\Matome.Masiya\\.nuget\\packages\\microsoft.codecoverage\\17.0.0\\microsoft.codecoverage.17.0.0.nupkg.sha512",

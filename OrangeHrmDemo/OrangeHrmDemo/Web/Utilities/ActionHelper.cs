@@ -33,7 +33,7 @@ namespace OrangeHrmDemo.Web.Utilities
 
             try
             {
-
+                WaitHandler.WaitForElementToBeClickable(driver, webElement, 10, 2);
                 webElement.Click();
 
             }catch(Exception e)
@@ -51,6 +51,7 @@ namespace OrangeHrmDemo.Web.Utilities
             try
             {
 
+                WaitHandler.WaitForElementToBeClickable(driver, webElement, 10, 2);
                 webElement.Clear();
                 webElement.SendKeys(data);
 
@@ -70,6 +71,8 @@ namespace OrangeHrmDemo.Web.Utilities
             {
 
                 SelectElement selectItem = new SelectElement(webElement);
+
+                WaitHandler.WaitForElementToBeClickable(driver, webElement, 10, 2);
 
                 switch (identifier.ToLower())
                 {
