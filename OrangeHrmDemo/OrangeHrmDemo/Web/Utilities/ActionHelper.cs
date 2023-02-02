@@ -51,7 +51,8 @@ namespace OrangeHrmDemo.Web.Utilities
             try
             {
 
-
+                webElement.Clear();
+                webElement.SendKeys(data);
 
             }catch(Exception e)
             {
