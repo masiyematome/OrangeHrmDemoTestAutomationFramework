@@ -1,7 +1,6 @@
 ﻿
 
 using OpenQA.Selenium;
-using
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using OpenQA.Selenium.Chrome;
