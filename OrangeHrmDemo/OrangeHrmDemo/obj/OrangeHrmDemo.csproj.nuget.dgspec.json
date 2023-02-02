@@ -81,6 +81,10 @@
               "target": "Package",
               "version": "[3.9.57, )"
             },
+            "WebDriverManager": {
+              "target": "Package",
+              "version": "[2.16.2, )"
+            },
             "nunit": {
               "target": "Package",
               "version": "[3.13.2, )"
