@@ -1,10 +1,7 @@
 using OpenQA.Selenium;
 using OrangeHrmDemo.Web.PageObjects;
 using OrangeHrmDemo.Web.resources;
-using OrangeHrmDemo.Web.Utilities;
-using System;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace OrangeHrmDemo.Web.StepDefinitions
 {
@@ -43,16 +40,7 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         public void ThenTheUserIsRedirectedToTheDashboard()
         {
 
-            string message = "Login failed";
-
-            if(ActionHelper.GetCurrentUrl(driver).Contains("dashboard"))
-            {
-
-                message = "Login successful";
-
-            }
-
-            Console.WriteLine(message);
+            landingPageObjects.ValidateLogin();
 
         }
     }

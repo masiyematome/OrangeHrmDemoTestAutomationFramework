@@ -45,5 +45,23 @@ namespace OrangeHrmDemo.Web.PageObjects
 
         }
 
+        public void ValidateLogin()
+        {
+
+            if (GetCurrentUrl(driver).Contains("dashboard"))
+            {
+
+                Console.WriteLine("Logged in successfully");
+
+            }
+            else
+            {
+
+                Console.WriteLine("Failed to login");
+
+            }
+
+        }
+
     }
 }
