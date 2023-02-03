@@ -36,6 +36,7 @@ namespace OrangeHrmDemo.Web.Hooks
         public void AfterScenario()
         {
 
+            Thread.Sleep(1000);
             driver.Quit();
 
         }

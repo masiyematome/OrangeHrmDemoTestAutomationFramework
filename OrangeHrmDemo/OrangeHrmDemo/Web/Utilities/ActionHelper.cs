@@ -7,7 +7,7 @@ namespace OrangeHrmDemo.Web.Utilities
     public class ActionHelper
     {
 
-        public string GetCurrentUrl(IWebDriver driver)
+        public static string GetCurrentUrl(IWebDriver driver)
         {
 
             string? currentUrl = null;

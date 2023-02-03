@@ -120,6 +120,9 @@
   <data name="BrowserName" xml:space="preserve">
     <value>Chrome</value>
   </data>
+  <data name="OrangeHrmDemoUrl" xml:space="preserve">
+    <value>https://opensource-demo.orangehrmlive.com/</value>
+  </data>
   <data name="OrangeHrmPassword" xml:space="preserve">
     <value>admin123</value>
   </data>

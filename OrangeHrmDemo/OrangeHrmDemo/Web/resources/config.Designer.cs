@@ -70,6 +70,15 @@ namespace OrangeHrmDemo.Web.resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://opensource-demo.orangehrmlive.com/.
+        /// </summary>
+        internal static string OrangeHrmDemoUrl {
+            get {
+                return ResourceManager.GetString("OrangeHrmDemoUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to admin123.
         /// </summary>
         internal static string OrangeHrmPassword {

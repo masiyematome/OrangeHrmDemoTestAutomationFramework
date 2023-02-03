@@ -75,6 +75,20 @@
           "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {}
         }
       },
+      "Dynamitey/2.0.9.136": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.4.1",
+          "NETStandard.Library": "1.6.1",
+          "System.ComponentModel": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.5/Dynamitey.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/Dynamitey.dll": {}
+        }
+      },
       "ExtentReports/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -1988,6 +2002,19 @@
           "build/SpecFlow.targets": {}
         }
       },
+      "SpecFlow.Assist.Dynamic/1.4.2": {
+        "type": "package",
+        "dependencies": {
+          "Dynamitey": "2.0.9.136",
+          "SpecFlow": "3.0.213"
+        },
+        "compile": {
+          "lib/netstandard2.0/SpecFlow.Assist.Dynamic.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SpecFlow.Assist.Dynamic.dll": {}
+        }
+      },
       "SpecFlow.Internal.Json/1.0.8": {
         "type": "package",
         "compile": {
@@ -2173,10 +2200,10 @@
           "lib/netstandard1.3/System.Collections.Specialized.dll": {}
         }
       },
-      "System.ComponentModel/4.0.1": {
+      "System.ComponentModel/4.3.0": {
         "type": "package",
         "dependencies": {
-          "System.Runtime": "4.1.0"
+          "System.Runtime": "4.3.0"
         },
         "compile": {
           "ref/netstandard1.0/System.ComponentModel.dll": {
@@ -3917,6 +3944,20 @@
         "lib/net40/SeleniumExtras.WaitHelpers.dll",
         "lib/net45/SeleniumExtras.WaitHelpers.dll",
         "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll"
+      ]
+    },
+    "Dynamitey/2.0.9.136": {
+      "sha512": "SzGWOl8nKR4r7WYiyMgJ0n/MuncdtPSyjxe1+znH8KVKOFQAckXFOeqOXgcWSMLHT+ehAYtZHPWjX+GsH7eI4Q==",
+      "type": "package",
+      "path": "dynamitey/2.0.9.136",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dynamitey.2.0.9.136.nupkg.sha512",
+        "dynamitey.nuspec",
+        "lib/net40/Dynamitey.dll",
+        "lib/netstandard1.5/Dynamitey.dll",
+        "lib/portable-net45+sl5+win8+wp8/Dynamitey.dll"
       ]
     },
     "ExtentReports/4.1.0": {
@@ -6168,6 +6209,22 @@
         "specflow.nuspec"
       ]
     },
+    "SpecFlow.Assist.Dynamic/1.4.2": {
+      "sha512": "nOvPHddTUT4NwK4IH/SXYDWbK421SfXgBx/Hu3SEepW0V3BhcXCzF5T6OTNVoK92sXoV4pKHN+2lqQaaBsYx9A==",
+      "type": "package",
+      "path": "specflow.assist.dynamic/1.4.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/SpecFlow.Assist.Dynamic.dll",
+        "lib/net461/SpecFlow.Assist.Dynamic.dll",
+        "lib/net462/SpecFlow.Assist.Dynamic.dll",
+        "lib/net472/SpecFlow.Assist.Dynamic.dll",
+        "lib/netstandard2.0/SpecFlow.Assist.Dynamic.dll",
+        "specflow.assist.dynamic.1.4.2.nupkg.sha512",
+        "specflow.assist.dynamic.nuspec"
+      ]
+    },
     "SpecFlow.Internal.Json/1.0.8": {
       "sha512": "lVCC/Rie7N5rFoc7YxPS0nneLfsWSTIMMlkndwxhaD8MxBp3Bsv1HeiVjVwXCjWaQeoqZcvIy52fF5Xit00ZLw==",
       "type": "package",
@@ -6792,10 +6849,10 @@
         "system.collections.specialized.nuspec"
       ]
     },
-    "System.ComponentModel/4.0.1": {
-      "sha512": "oBZFnm7seFiVfugsIyOvQCWobNZs7FzqDV/B7tx20Ep/l3UUFCPDkdTnCNaJZTU27zjeODmy2C/cP60u3D4c9w==",
+    "System.ComponentModel/4.3.0": {
+      "sha512": "VyGn1jGRZVfxnh8EdvDCi71v3bMXrsu8aYJOwoV7SNDLVhiEqwP86pPMyRGsDsxhXAm2b3o9OIqeETfN5qfezw==",
       "type": "package",
-      "path": "system.componentmodel/4.0.1",
+      "path": "system.componentmodel/4.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6847,7 +6904,7 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.componentmodel.4.0.1.nupkg.sha512",
+        "system.componentmodel.4.3.0.nupkg.sha512",
         "system.componentmodel.nuspec"
       ]
     },
@@ -11053,6 +11110,7 @@
       "NUnit3TestAdapter >= 4.1.0",
       "Selenium.Support >= 4.8.0",
       "Selenium.WebDriver >= 4.8.0",
+      "SpecFlow.Assist.Dynamic >= 1.4.2",
       "SpecFlow.NUnit >= 3.9.40",
       "SpecFlow.Plus.LivingDocPlugin >= 3.9.57",
       "WebDriverManager >= 2.16.2",
@@ -11135,6 +11193,10 @@
           "Selenium.WebDriver": {
             "target": "Package",
             "version": "[4.8.0, )"
+          },
+          "SpecFlow.Assist.Dynamic": {
+            "target": "Package",
+            "version": "[1.4.2, )"
           },
           "SpecFlow.NUnit": {
             "target": "Package",
