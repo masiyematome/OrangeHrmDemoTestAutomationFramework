@@ -1,6 +1,7 @@
 ﻿using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports.Reporter.Configuration;
+using OpenQA.Selenium;
 
 namespace OrangeHrmDemo.Web.Utilities
 {
@@ -31,6 +32,16 @@ namespace OrangeHrmDemo.Web.Utilities
             }
 
             return extent;
+
+        }
+
+        public static string TakeScreenshot(IWebDriver driver)
+        {
+
+            ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
+            Screenshot screenshot = takesScreenshot.GetScreenshot();
+
+            return screenshot.AsBase64EncodedString;
 
         }
 
