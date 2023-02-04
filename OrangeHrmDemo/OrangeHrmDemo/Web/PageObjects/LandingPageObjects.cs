@@ -1,6 +1,8 @@
 ﻿
+using AventStack.ExtentReports;
 using OpenQA.Selenium;
 using OrangeHrmDemo.Web.PageRepo;
+using OrangeHrmDemo.Web.resources;
 using OrangeHrmDemo.Web.Utilities;
 
 namespace OrangeHrmDemo.Web.PageObjects
@@ -8,8 +10,8 @@ namespace OrangeHrmDemo.Web.PageObjects
     public class LandingPageObjects : ActionHelper
     {
 
-        private readonly LandingPageRepo landingPageRepo;
         private readonly IWebDriver driver;
+        private readonly LandingPageRepo landingPageRepo;
 
         public LandingPageObjects(IWebDriver driver)
         {
@@ -27,7 +29,9 @@ namespace OrangeHrmDemo.Web.PageObjects
 
                 driver.Url = url;
 
-            }catch(Exception ex)
+            }
+
+            catch(Exception ex)
             {
 
                 Console.WriteLine($"Couldn't navigate to url: {ex.Message}");
@@ -45,19 +49,19 @@ namespace OrangeHrmDemo.Web.PageObjects
 
         }
 
-        public void ValidateLogin()
+        public void ValidateLogin(ExtentTest node)
         {
 
             if (GetCurrentUrl(driver).Contains("dashboard"))
             {
 
-                Console.WriteLine("Logged in successfully");
-
+                node.Pass("Logged in successfully");
+                
             }
             else
             {
 
-                Console.WriteLine("Failed to login");
+                node.Fail("Failed to login");
 
             }
 

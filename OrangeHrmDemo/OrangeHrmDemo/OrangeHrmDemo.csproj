@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Web\Features\" />
+    <Folder Include="Web\Reports\" />
   </ItemGroup>
 
   <ItemGroup>

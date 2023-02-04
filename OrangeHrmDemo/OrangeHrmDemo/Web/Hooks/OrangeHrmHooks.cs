@@ -1,4 +1,5 @@
 ﻿
+using AventStack.ExtentReports;
 using BoDi;
 using OpenQA.Selenium;
 using OrangeHrmDemo.Web.resources;
@@ -13,12 +14,17 @@ namespace OrangeHrmDemo.Web.Hooks
     {
 
         private readonly IObjectContainer objectContainer;
+
+        private ExtentReports extent;
+        private ScenarioContext scenarioContext;
         private IWebDriver driver;
 
-        public OrangeHrmHooks(IObjectContainer objectContainer)
+        public OrangeHrmHooks(IObjectContainer objectContainer,ScenarioContext scenarioContext)
         {
 
             this.objectContainer = objectContainer;
+            this.scenarioContext = scenarioContext;
+            extent = ExtentReportsHelper.IntializeExtentReports("Web\\Reports\\htmlReport.html", "Orange Hrm Test Automation Report");
 
         }
 
@@ -30,14 +36,18 @@ namespace OrangeHrmDemo.Web.Hooks
 
             objectContainer.RegisterInstanceAs(driver);
 
+            ExtentTest test = extent.CreateTest(scenarioContext.ScenarioInfo.Title);
+
+            objectContainer.RegisterInstanceAs(test);
+
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
 
-            Thread.Sleep(1000);
             driver.Quit();
+            extent.Flush();
 
         }
 

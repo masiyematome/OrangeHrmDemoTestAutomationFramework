@@ -25,5 +25,8 @@ namespace OrangeHrmDemo.Web.PageRepo
         [FindsBy(How = How.XPath, Using = "//button[contains(@class,'login')]")]
         public IWebElement btnLogin;
 
+        [FindsBy(How = How.XPath, Using = "//h5[text() = 'Login']")]
+        public IWebElement txtLogin;
+
     }
 }

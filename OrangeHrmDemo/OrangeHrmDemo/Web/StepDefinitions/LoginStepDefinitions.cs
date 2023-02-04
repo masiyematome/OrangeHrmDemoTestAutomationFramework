@@ -1,3 +1,4 @@
+using AventStack.ExtentReports;
 using OpenQA.Selenium;
 using OrangeHrmDemo.Web.PageObjects;
 using OrangeHrmDemo.Web.resources;
@@ -9,14 +10,17 @@ namespace OrangeHrmDemo.Web.StepDefinitions
     public class LoginStepDefinitions
     {
 
+        private ExtentTest test;
+        private ExtentTest node;
         private readonly IWebDriver driver;
         private readonly LandingPageObjects landingPageObjects;
 
-        public LoginStepDefinitions(IWebDriver driver)
+        public LoginStepDefinitions(IWebDriver driver,ExtentTest test)
         {
 
-            landingPageObjects = new LandingPageObjects(driver);
             this.driver = driver;
+            this.test = test;
+            landingPageObjects = new LandingPageObjects(driver);
 
         }
 
@@ -40,8 +44,10 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         public void ThenTheUserIsRedirectedToTheDashboard()
         {
 
-            landingPageObjects.ValidateLogin();
+            node = test.CreateNode("Login");
+            landingPageObjects.ValidateLogin(node);
 
         }
+
     }
 }

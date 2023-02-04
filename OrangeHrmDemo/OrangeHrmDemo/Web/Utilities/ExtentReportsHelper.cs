@@ -7,7 +7,7 @@ namespace OrangeHrmDemo.Web.Utilities
 {
     public class ExtentReportsHelper
     {
-        public static ExtentReports IntializeExtentReports(string destinationPath,string reporterTitle)
+        public static ExtentReports IntializeExtentReports(string targetFolderAndFileName,string reporterTitle)
         {
 
             ExtentReports? extent = null;
@@ -15,13 +15,15 @@ namespace OrangeHrmDemo.Web.Utilities
             try
             {
 
+                string finalDestinationPath = Environment.CurrentDirectory.Split("bin")[0] + targetFolderAndFileName;
+
                 extent = new ExtentReports();
-                ExtentHtmlReporter reporter = new ExtentHtmlReporter(destinationPath);
+                ExtentHtmlReporter reporter = new ExtentHtmlReporter(finalDestinationPath);
 
                 extent.AttachReporter(reporter);
 
                 reporter.Config.DocumentTitle = reporterTitle;
-                reporter.Config.Theme = Theme.Dark;
+                reporter.Config.Theme = Theme.Dark;    
 
             }
             catch(Exception ex)
@@ -35,13 +37,13 @@ namespace OrangeHrmDemo.Web.Utilities
 
         }
 
-        public static string TakeScreenshot(IWebDriver driver)
+        public static MediaEntityModelProvider TakeScreenshot(IWebDriver driver)
         {
 
             ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
             Screenshot screenshot = takesScreenshot.GetScreenshot();
 
-            return screenshot.AsBase64EncodedString;
+            return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot.AsBase64EncodedString).Build();
 
         }
 
