@@ -2,7 +2,6 @@
 using AventStack.ExtentReports;
 using OpenQA.Selenium;
 using OrangeHrmDemo.Web.PageRepo;
-using OrangeHrmDemo.Web.resources;
 using OrangeHrmDemo.Web.Utilities;
 
 namespace OrangeHrmDemo.Web.PageObjects
@@ -55,13 +54,13 @@ namespace OrangeHrmDemo.Web.PageObjects
             if (GetCurrentUrl(driver).Contains("dashboard"))
             {
 
-                node.Pass("Logged in successfully");
+                node.Pass("Logged in successfully",ExtentReportsHelper.TakeScreenshot(driver));
                 
             }
             else
             {
 
-                node.Fail("Failed to login");
+                node.Fail("Failed to login", ExtentReportsHelper.TakeScreenshot(driver));
 
             }
 

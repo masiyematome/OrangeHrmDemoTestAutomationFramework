@@ -41,9 +41,9 @@ namespace OrangeHrmDemo.Web.Utilities
         {
 
             ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
-            Screenshot screenshot = takesScreenshot.GetScreenshot();
+            string screenshot = takesScreenshot.GetScreenshot().AsBase64EncodedString;
 
-            return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot.AsBase64EncodedString).Build();
+            return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot).Build();
 
         }
 
