@@ -51,16 +51,29 @@ namespace OrangeHrmDemo.Web.PageObjects
         public void ValidateSuccessfulLogin(ExtentTest node)
         {
 
-            if (GetCurrentUrl(driver).Contains("dashboard"))
+            try
             {
+
+                WaitHandler.WaitForElementToBeVisible(driver, DashboardRepo.GetDashboardHeading(), 10, 2);
 
                 node.Pass("Logged in successfully", ExtentReportsHelper.TakeScreenshot(driver));
 
             }
-            else
+            catch (Exception ex)
             {
 
-                node.Fail("Failed to login", ExtentReportsHelper.TakeScreenshot(driver));
+                if (GetCurrentUrl(driver).Contains("dashboard"))
+                {
+
+                    node.Pass("Logged in successfully", ExtentReportsHelper.TakeScreenshot(driver));
+
+                }
+                else
+                {
+
+                    node.Fail("Failed to login", ExtentReportsHelper.TakeScreenshot(driver));
+
+                }
 
             }
 

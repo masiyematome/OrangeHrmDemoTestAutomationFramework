@@ -1,4 +1,5 @@
 using AventStack.ExtentReports;
+using BoDi;
 using OpenQA.Selenium;
 using OrangeHrmDemo.Web.PageObjects;
 using OrangeHrmDemo.Web.resources;
@@ -11,16 +12,16 @@ namespace OrangeHrmDemo.Web.StepDefinitions
     public class LoginStepDefinitions
     {
 
-        private ExtentTest test;
-        private ExtentTest node;
-        private readonly IWebDriver driver;
         private readonly LandingPageObjects landingPageObjects;
+        private readonly IWebDriver driver;
+        private ExtentTest node;
+    
 
-        public LoginStepDefinitions(IWebDriver driver,ExtentTest test)
+        public LoginStepDefinitions(IWebDriver driver, ExtentTest node)
         {
 
+            this.node = node;
             this.driver = driver;
-            this.test = test;
             landingPageObjects = new LandingPageObjects(driver);
 
         }
@@ -45,8 +46,6 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         public void ThenTheUserIsRedirectedToTheDashboard()
         {
 
-            node = test.CreateNode("Successful login");
-
             landingPageObjects.ValidateSuccessfulLogin(node);
 
         }
@@ -64,8 +63,6 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         {
 
             dynamic tableData = table.CreateDynamicInstance();
-
-            node = test.CreateNode("Unsuccessful login");
 
             landingPageObjects.ValidateUnsuccessfulLogin(node, tableData.errorMessage);
 
