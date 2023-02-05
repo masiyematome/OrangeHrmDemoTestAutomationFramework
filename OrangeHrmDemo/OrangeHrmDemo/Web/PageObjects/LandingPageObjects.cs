@@ -51,6 +51,8 @@ namespace OrangeHrmDemo.Web.PageObjects
         public void ValidateLogin(ExtentTest node)
         {
 
+            WaitHandler.WaitForElementToBeVisible(driver, DashboardRepo.GetDashboardHeading(), 10, 2);
+
             if (GetCurrentUrl(driver).Contains("dashboard"))
             {
 
