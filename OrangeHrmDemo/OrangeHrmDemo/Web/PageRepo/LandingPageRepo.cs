@@ -28,8 +28,14 @@ namespace OrangeHrmDemo.Web.PageRepo
         [FindsBy(How = How.XPath, Using = "//h5[text() = 'Login']")]
         public IWebElement txtLogin;
 
+
         [FindsBy(How = How.XPath, Using = "//p[text()[contains(.,'Invalid')]]")]
         public IWebElement txtInvalidCredentials;
+
+        public By GetTxtInvalidCredentials()
+        {
+            return By.XPath("//p[text()[contains(.,'Invalid')]]");
+        }
 
     }
 }

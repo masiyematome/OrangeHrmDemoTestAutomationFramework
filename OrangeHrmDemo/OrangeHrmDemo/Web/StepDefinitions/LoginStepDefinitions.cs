@@ -63,11 +63,11 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         public void ThenTheUserIsPresentedWithAnErrorMessage(Table table)
         {
 
-            dynamic errorMessage = table.CreateDynamicInstance();
+            dynamic tableData = table.CreateDynamicInstance();
 
             node = test.CreateNode("Unsuccessful login");
 
-            landingPageObjects.ValidateUnsuccessfulLogin(node, errorMessage.ToString());
+            landingPageObjects.ValidateUnsuccessfulLogin(node, tableData.errorMessage);
 
         }
 

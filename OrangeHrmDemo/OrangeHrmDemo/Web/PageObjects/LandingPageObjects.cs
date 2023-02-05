@@ -1,6 +1,5 @@
 ﻿
 using AventStack.ExtentReports;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using OrangeHrmDemo.Web.PageRepo;
 using OrangeHrmDemo.Web.Utilities;
@@ -70,14 +69,16 @@ namespace OrangeHrmDemo.Web.PageObjects
         public void ValidateUnsuccessfulLogin(ExtentTest node,string expectedErrorMessage)
         {
 
-            Thread.Sleep(500);
 
-            IWebElement errorMessageElementOnThePage = landingPageRepo.txtInvalidCredentials;
+            By errorMessageLocator = landingPageRepo.GetTxtInvalidCredentials();
 
-            if (errorMessageElementOnThePage.Displayed)
+            try
             {
 
-                string errorMessage = errorMessageElementOnThePage.Text;
+                WaitHandler.WaitForElementToBeVisible(driver, errorMessageLocator , 10, 2);
+
+                string errorMessage = driver.FindElement(errorMessageLocator).Text;
+
 
                 if (string.Equals(errorMessage, expectedErrorMessage, StringComparison.OrdinalIgnoreCase))
                 {
@@ -93,13 +94,17 @@ namespace OrangeHrmDemo.Web.PageObjects
 
                 }
 
+
             }
-            else
+            catch(Exception ex)
             {
 
-                node.Fail("Error message is not displayed. Please check it",ExtentReportsHelper.TakeScreenshot(driver));
+                Console.WriteLine($"Error message not on the page {ex.Message}");
+
+                node.Fail("Error message is not displayed. Please check it", ExtentReportsHelper.TakeScreenshot(driver));
 
             }
+
 
         }
 
