@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OrangeHrmDemo.Web.PageObjects;
 using OrangeHrmDemo.Web.resources;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace OrangeHrmDemo.Web.StepDefinitions
 {
@@ -44,8 +45,29 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         public void ThenTheUserIsRedirectedToTheDashboard()
         {
 
-            node = test.CreateNode("Login");
-            landingPageObjects.ValidateLogin(node);
+            node = test.CreateNode("Successful login");
+
+            landingPageObjects.ValidateSuccessfulLogin(node);
+
+        }
+
+        [When(@"the user logs in with invalid login credentials")]
+        public void WhenTheUserLogsInWithInvalidLoginCredentials()
+        {
+
+            landingPageObjects.Login(config.OrangeHrmUsername, config.OrangeHrmInvalidPassword);
+
+        }
+
+        [Then(@"the user is presented with an error message")]
+        public void ThenTheUserIsPresentedWithAnErrorMessage(Table table)
+        {
+
+            dynamic errorMessage = table.CreateDynamicInstance();
+
+            node = test.CreateNode("Unsuccessful login");
+
+            landingPageObjects.ValidateUnsuccessfulLogin(node, errorMessage.ToString());
 
         }
 

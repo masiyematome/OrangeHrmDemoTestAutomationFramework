@@ -79,6 +79,15 @@ namespace OrangeHrmDemo.Web.resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to someRandomPassword.
+        /// </summary>
+        internal static string OrangeHrmInvalidPassword {
+            get {
+                return ResourceManager.GetString("OrangeHrmInvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to admin123.
         /// </summary>
         internal static string OrangeHrmPassword {

@@ -1,5 +1,6 @@
 ﻿
 using AventStack.ExtentReports;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OrangeHrmDemo.Web.PageRepo;
 using OrangeHrmDemo.Web.Utilities;
@@ -48,21 +49,55 @@ namespace OrangeHrmDemo.Web.PageObjects
 
         }
 
-        public void ValidateLogin(ExtentTest node)
+        public void ValidateSuccessfulLogin(ExtentTest node)
         {
-
-            WaitHandler.WaitForElementToBeVisible(driver, DashboardRepo.GetDashboardHeading(), 10, 2);
 
             if (GetCurrentUrl(driver).Contains("dashboard"))
             {
 
-                node.Pass("Logged in successfully",ExtentReportsHelper.TakeScreenshot(driver));
-                
+                node.Pass("Logged in successfully", ExtentReportsHelper.TakeScreenshot(driver));
+
             }
             else
             {
 
                 node.Fail("Failed to login", ExtentReportsHelper.TakeScreenshot(driver));
+
+            }
+
+        }
+
+        public void ValidateUnsuccessfulLogin(ExtentTest node,string expectedErrorMessage)
+        {
+
+            Thread.Sleep(500);
+
+            IWebElement errorMessageElementOnThePage = landingPageRepo.txtInvalidCredentials;
+
+            if (errorMessageElementOnThePage.Displayed)
+            {
+
+                string errorMessage = errorMessageElementOnThePage.Text;
+
+                if (string.Equals(errorMessage, expectedErrorMessage, StringComparison.OrdinalIgnoreCase))
+                {
+
+                    node.Pass("Failed to login", ExtentReportsHelper.TakeScreenshot(driver));
+
+                }
+                else
+                {
+
+                    node.Fail("Error message on the page does not match the expected error message.Please check it",
+                        ExtentReportsHelper.TakeScreenshot(driver));
+
+                }
+
+            }
+            else
+            {
+
+                node.Fail("Error message is not displayed. Please check it",ExtentReportsHelper.TakeScreenshot(driver));
 
             }
 
