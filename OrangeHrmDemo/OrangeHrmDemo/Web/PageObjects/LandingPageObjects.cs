@@ -71,6 +71,7 @@ namespace OrangeHrmDemo.Web.PageObjects
                 else
                 {
 
+                    Console.WriteLine(ex.Message);
                     node.Fail("Failed to login", ExtentReportsHelper.TakeScreenshot(driver));
 
                 }
@@ -106,7 +107,6 @@ namespace OrangeHrmDemo.Web.PageObjects
                         ExtentReportsHelper.TakeScreenshot(driver));
 
                 }
-
 
             }
             catch(Exception ex)

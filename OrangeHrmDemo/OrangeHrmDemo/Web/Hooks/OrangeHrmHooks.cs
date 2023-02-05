@@ -13,8 +13,9 @@ namespace OrangeHrmDemo.Web.Hooks
     public class OrangeHrmHooks
     {
 
-        private static readonly ExtentReports extent;
-        private static IObjectContainer globalContainer;
+        private static ExtentReports extent;
+        private static ExtentTest test;
+        private readonly IObjectContainer objectContainer;
         private IWebDriver driver;
 
         static OrangeHrmHooks()
@@ -23,30 +24,32 @@ namespace OrangeHrmDemo.Web.Hooks
             extent = ExtentReportsHelper.IntializeExtentReports("Web\\Reports\\htmlReport.html", "Orange Hrm Test Automation Report");
 
         }
-
-        [BeforeFeature]
-        public static void RunBeforeFeature(IObjectContainer objectContainer, FeatureContext featureContext)
+        public OrangeHrmHooks(IObjectContainer objectContainer)
         {
 
-            ExtentTest test = extent.CreateTest(featureContext.FeatureInfo.Title);
+            this.objectContainer = objectContainer;
 
-            objectContainer.RegisterInstanceAs(test);
+        }
 
-            globalContainer = objectContainer;
-            
+        [BeforeFeature]
+        public static void RunBeforeFeature(FeatureContext featureContext)
+        {
+
+            test = extent.CreateTest(featureContext.FeatureInfo.Title);
+
         }
 
         [BeforeScenario]
-        public void BeforeScenario(ExtentTest test,ScenarioContext scenarioContext)
+        public void BeforeScenario(ScenarioContext scenarioContext)
         {
 
             driver = WebBrowserHelper.SetUpBrowser(config.BrowserName);
 
-            globalContainer.RegisterInstanceAs(driver);
+            objectContainer.RegisterInstanceAs(driver);
 
             ExtentTest node = test.CreateNode(scenarioContext.ScenarioInfo.Title);
 
-            globalContainer.RegisterInstanceAs(node);
+            objectContainer.RegisterInstanceAs(node);
 
         }
 

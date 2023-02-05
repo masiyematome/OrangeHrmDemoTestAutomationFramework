@@ -64,7 +64,7 @@ namespace OrangeHrmDemo.Web.StepDefinitions
 
             dynamic tableData = table.CreateDynamicInstance();
 
-            landingPageObjects.ValidateUnsuccessfulLogin(node, tableData.errorMessage);
+            landingPageObjects.ValidateUnsuccessfulLogin(node,tableData.errorMessage);
 
         }
 
