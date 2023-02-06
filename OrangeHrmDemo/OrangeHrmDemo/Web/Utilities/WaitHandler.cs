@@ -16,18 +16,7 @@ namespace OrangeHrmDemo.Web.Utilities
                 
             };
 
-            try
-            {
-
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(elementBy));
-
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine(e.Message);
-
-            }
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(elementBy));
 
         }
         public static void WaitForElementToBeClickable(IWebDriver driver,IWebElement element,int maxWaitDuration,int pollingDuration)
@@ -40,18 +29,7 @@ namespace OrangeHrmDemo.Web.Utilities
 
             };
 
-            try
-            {
-
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
-
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine(e.Message);
-
-            }
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
 
         }
 

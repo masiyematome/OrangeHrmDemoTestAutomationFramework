@@ -38,7 +38,9 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         public void WhenTheUserLogsInWithAValidLoginCredentials()
         {
 
-            landingPageObjects.Login(config.OrangeHrmUsername, config.OrangeHrmPassword);
+            //landingPageObjects.Login(config.OrangeHrmUsername, config.OrangeHrmPassword);
+            landingPageObjects.Login("", "");
+
 
         }
 

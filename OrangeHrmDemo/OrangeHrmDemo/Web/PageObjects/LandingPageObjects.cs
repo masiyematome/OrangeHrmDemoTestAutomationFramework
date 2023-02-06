@@ -1,5 +1,6 @@
 ﻿
 using AventStack.ExtentReports;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OrangeHrmDemo.Web.PageRepo;
 using OrangeHrmDemo.Web.Utilities;
@@ -56,27 +57,20 @@ namespace OrangeHrmDemo.Web.PageObjects
 
                 WaitHandler.WaitForElementToBeVisible(driver, DashboardRepo.GetDashboardHeading(), 10, 2);
 
-                node.Pass("Logged in successfully", ExtentReportsHelper.TakeScreenshot(driver));
+                node.Pass("Login passed", ExtentReportsHelper.TakeScreenshot(driver));
+
+                Assert.Pass("Loggin passed");
 
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
 
-                if (GetCurrentUrl(driver).Contains("dashboard"))
-                {
+                node.Fail("Login failed", ExtentReportsHelper.TakeScreenshot(driver));
 
-                    node.Pass("Logged in successfully", ExtentReportsHelper.TakeScreenshot(driver));
-
-                }
-                else
-                {
-
-                    Console.WriteLine(ex.Message);
-                    node.Fail("Failed to login", ExtentReportsHelper.TakeScreenshot(driver));
-
-                }
+                Assert.Fail($"Login failed: {ex.Message}");
 
             }
+            
 
         }
 
@@ -99,6 +93,8 @@ namespace OrangeHrmDemo.Web.PageObjects
 
                     node.Pass("Failed to login", ExtentReportsHelper.TakeScreenshot(driver));
 
+                    Assert.Pass("Failed to login... Negative test passed!");
+
                 }
                 else
                 {
@@ -106,15 +102,17 @@ namespace OrangeHrmDemo.Web.PageObjects
                     node.Fail("Error message on the page does not match the expected error message.Please check it",
                         ExtentReportsHelper.TakeScreenshot(driver));
 
+                    Assert.Fail("Error message on the page does not match the expected error message.Please check it");
+
                 }
 
             }
             catch(Exception ex)
             {
 
-                Console.WriteLine($"Error message not on the page {ex.Message}");
-
                 node.Fail("Error message is not displayed. Please check it", ExtentReportsHelper.TakeScreenshot(driver));
+
+                Assert.Fail($"Error message not on the page {ex.Message}");
 
             }
 
