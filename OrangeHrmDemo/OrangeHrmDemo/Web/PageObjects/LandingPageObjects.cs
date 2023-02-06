@@ -55,11 +55,11 @@ namespace OrangeHrmDemo.Web.PageObjects
             try
             {
 
-                WaitHandler.WaitForElementToBeVisible(driver, DashboardRepo.GetDashboardHeading(), 10, 2);
+                By dashboardTextLocator = DashboardRepo.GetDashboardHeading();
+
+                WaitHandler.WaitForElementToBeVisible(driver, dashboardTextLocator, 10, 2);
 
                 node.Pass("Login passed", ExtentReportsHelper.TakeScreenshot(driver));
-
-                Assert.Pass("Loggin passed");
 
             }
             catch(Exception ex)
@@ -67,7 +67,7 @@ namespace OrangeHrmDemo.Web.PageObjects
 
                 node.Fail("Login failed", ExtentReportsHelper.TakeScreenshot(driver));
 
-                Assert.Fail($"Login failed: {ex.Message}");
+                Assert.Fail("Login failed");
 
             }
             
@@ -87,13 +87,10 @@ namespace OrangeHrmDemo.Web.PageObjects
 
                 string errorMessage = driver.FindElement(errorMessageLocator).Text;
 
-
                 if (string.Equals(errorMessage, expectedErrorMessage, StringComparison.OrdinalIgnoreCase))
                 {
 
-                    node.Pass("Failed to login", ExtentReportsHelper.TakeScreenshot(driver));
-
-                    Assert.Pass("Failed to login... Negative test passed!");
+                    node.Pass("Failed to login..Negative test passed!", ExtentReportsHelper.TakeScreenshot(driver));
 
                 }
                 else
