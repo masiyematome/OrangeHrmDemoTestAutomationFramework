@@ -67,7 +67,7 @@ namespace OrangeHrmDemo.Web.PageObjects
 
                 node.Fail("Login failed", ExtentReportsHelper.TakeScreenshot(driver));
 
-                Assert.Fail("Login failed");
+                Assert.Fail("Login failed: " + ex.Message);
 
             }
             

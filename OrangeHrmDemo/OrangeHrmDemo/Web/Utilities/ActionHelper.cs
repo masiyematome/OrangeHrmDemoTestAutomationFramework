@@ -41,7 +41,7 @@ namespace OrangeHrmDemo.Web.Utilities
             }catch(Exception e)
             {
 
-                Console.WriteLine($"Couldn't click on web element {e.Message}");
+                Console.WriteLine($"Couldn't click on web element: {e.Message}");
 
             }
 
