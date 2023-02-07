@@ -28,12 +28,14 @@ namespace OrangeHrmDemo.Web.Utilities
 
         }
 
-        public void ClickOnObject(IWebDriver driver,IWebElement webElement)
+        public static void ClickOnObject(IWebDriver driver,IWebElement webElement)
         {
 
             try
             {
+
                 WaitHandler.WaitForElementToBeClickable(driver, webElement, 10, 2);
+
                 webElement.Click();
 
             }catch(Exception e)

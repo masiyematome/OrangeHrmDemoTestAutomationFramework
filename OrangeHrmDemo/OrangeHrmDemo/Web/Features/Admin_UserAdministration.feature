@@ -10,7 +10,7 @@ Scenario: Add a new user
 
 	When the admin adds a new user
 
-	| UserRole | EmployeeName | Status  | Username | Password      | confirmPassword |
+	| UserRole | EmployeeName | Status  | Username | Password      | ConfirmPassword |
 	| ESS      | Laura Dan    | Enabled | Laura D  | Laura_Dan2023 | Laura_Dan2023   |
 
 	And the admin logs out of the application
