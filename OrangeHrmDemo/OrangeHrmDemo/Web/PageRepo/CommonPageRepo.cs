@@ -23,12 +23,10 @@ namespace OrangeHrmDemo.Web.PageRepo
         [FindsBy(How = How.XPath, Using = "//a[text() = 'Logout']")]
         public IWebElement btnLogout;
 
-        public IWebElement GetTabPath(string tabText)
+        public By GetTabPath(string tabText)
         {
 
-            By elementLocator = By.XPath($"//span[text()[contains(.,'{tabText}')]]");
-
-            return driver.FindElement(elementLocator);
+            return By.XPath($"//span[text()[contains(.,'{tabText}')]]");
 
         }
 

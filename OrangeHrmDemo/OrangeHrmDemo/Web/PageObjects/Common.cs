@@ -1,5 +1,4 @@
-﻿
-using AventStack.ExtentReports;
+﻿using AventStack.ExtentReports;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OrangeHrmDemo.Web.PageRepo;
@@ -26,9 +25,9 @@ namespace OrangeHrmDemo.Web.PageObjects
         public void NavigateToTab(string tabText)
         {
 
-            IWebElement targetTab = commonPageRepo.GetTabPath(tabText);
+            WaitHandler.WaitForElementToBeVisible(driver, commonPageRepo.GetTabPath(tabText), 10, 2);
 
-            ClickOnObject(driver, targetTab);
+            ClickOnObject(driver, driver.FindElement(commonPageRepo.GetTabPath(tabText)));
             
         }
 
