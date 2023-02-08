@@ -1,5 +1,6 @@
 ﻿
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 
 namespace OrangeHrmDemo.Web.Utilities
@@ -100,6 +101,39 @@ namespace OrangeHrmDemo.Web.Utilities
                 Console.WriteLine($"Failed to select: {e.Message}");
 
             }
+
+        }
+
+        public void HandleKeyBoardActions(IWebDriver driver,string targetAction)
+        {
+
+            try
+            {
+
+                Actions actions = new Actions(driver);
+
+                switch (targetAction.ToLower())
+                {
+
+                    case "arrow key down":
+
+                        actions.
+                            SendKeys(Keys.ArrowDown)
+                            .Build()
+                            .Perform();
+
+                        break;
+
+                }
+
+            }
+            catch(Exception ex)
+            {
+
+                Console.WriteLine("Couldn't perform action: " + ex.Message);
+
+            }
+            
 
         }
 
