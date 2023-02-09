@@ -24,11 +24,14 @@ namespace OrangeHrmDemo.Web.PageRepo
         [FindsBy(How = How.XPath, Using = "//*[text()[contains(.,'Role')]]//ancestor::*[contains(@class,'gutter')]//*[contains(@class,'text-input')]")]
         public IWebElement drpUserRole;
 
-        [FindsBy(How = How.XPath,Using = "//*[text() = 'Status']//ancestor::*[contains(@class,'gutter')]//*[contains(@class,'text-input')]")]
+        [FindsBy(How = How.XPath, Using = "//*[text() = 'Status']//ancestor::*[contains(@class,'gutter')]//*[contains(@class,'text-input')]")]
         public IWebElement drpStatus;
 
         [FindsBy(How = How.XPath, Using = "//input[contains(@placeholder,'Type')]")]
-        public IWebElement txtTypeForHints;
+        public IWebElement txtEmployeeName;
+
+        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'autocomplete-dropdown')]")]
+        public IWebElement drpEmployeeAutoComplete;
 
         [FindsBy(How = How.XPath, Using = "//*[text() = 'Username']//ancestor::Div[contains(@class,'gutters')]//input")]
         public IWebElement txtUsername;
@@ -41,6 +44,15 @@ namespace OrangeHrmDemo.Web.PageRepo
 
         [FindsBy(How = How.XPath, Using = "//button[normalize-space() = 'Save']")]
         public IWebElement btnSave;
+        public By GetAutoCompleteDropdown => By.XPath("//div[contains(@class,'autocomplete-dropdown')]");
+
+        public IWebElement GetAdminPageDropdownOptions(string option)
+        {
+
+            return driver.FindElement(By.XPath($"//div[@role='option']//span[contains(text(),'{option}')]"));
+
+        }
 
     }
+
 }

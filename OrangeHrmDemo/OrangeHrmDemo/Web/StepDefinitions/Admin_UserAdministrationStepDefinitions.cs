@@ -3,6 +3,7 @@ using OrangeHrmDemo.Web.PageObjects;
 using TechTalk.SpecFlow;
 using OrangeHrmDemo.Web.resources;
 using TechTalk.SpecFlow.Assist;
+using OrangeHrmDemo.Web.Support;
 
 namespace OrangeHrmDemo.Web.StepDefinitions
 {
@@ -10,13 +11,17 @@ namespace OrangeHrmDemo.Web.StepDefinitions
     public class Admin_UserAdministrationStepDefinitions
     {
 
-        private readonly LandingPageObjects landingPageObjects;
-        private readonly Common common;
+        readonly LandingPageObjects landingPageObjects;
+        private UserDetails userDetails;
+        readonly AdminPageObjects adminPageObjects;
+        readonly Common common;
         public Admin_UserAdministrationStepDefinitions(IWebDriver driver)
         {
 
             landingPageObjects = new LandingPageObjects(driver);
+            adminPageObjects = new AdminPageObjects(driver);
             common = new Common(driver);
+            userDetails = new UserDetails();
 
         }
 
@@ -34,21 +39,37 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         public void WhenTheAdminAddsANewUser(Table table)
         {
 
+            dynamic userData = table.CreateDynamicInstance();
 
-            
+            userDetails = new UserDetails()
+            {
+
+                userRole = userData.userRole,
+                employeeName = userData.employeeName,
+                status = userData.status,
+                userName = userData.userName,
+                password = userData.password
+
+            };
+
+            adminPageObjects.AddUser(userDetails);
 
         }
 
         [When(@"the admin logs out of the application")]
         public void WhenTheAdminLogsOutOfTheApplication()
         {
-            throw new PendingStepException();
+
+            common.Logout(); 
+
         }
 
         [When(@"the user logs in with the newly created login credentials")]
         public void WhenTheUserLogsInWithTheNewlyCreatedLoginCredentials()
         {
-            throw new PendingStepException();
+
+            landingPageObjects.Login(userDetails.userName,userDetails.password);
+
         }
 
         [When(@"the admin searches for a user")]

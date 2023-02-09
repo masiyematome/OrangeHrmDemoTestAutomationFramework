@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Bq4WTL5t/FcKMaNcWza4/Ak0rKuq5oLkIKGNgo39CjyHCuB7EnGi0FuxzzlWWxa0DSAmYoH8L/+iYajNNbIK6g==",
+  "dgSpecHash": "A433CVdryb4SSjqTa106EdgSONKYejAGMwqaqnrhA85MuPdSLK2M6px37Igawxp4HCf+WsB+GRCc1A1rO/liew==",
   "success": true,
   "projectFilePath": "C:\\Users\\Matome.Masiya\\Documents\\Coding\\Automation\\OrangeHrmDemoTestAutomationFramework\\OrangeHrmDemo\\OrangeHrmDemo\\OrangeHrmDemo.csproj",
   "expectedPackageFiles": [
@@ -110,6 +110,7 @@
     "C:\\Users\\Matome.Masiya\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\Matome.Masiya\\.nuget\\packages\\selenium.support\\4.8.0\\selenium.support.4.8.0.nupkg.sha512",
     "C:\\Users\\Matome.Masiya\\.nuget\\packages\\selenium.webdriver\\4.8.0\\selenium.webdriver.4.8.0.nupkg.sha512",
+    "C:\\Users\\Matome.Masiya\\.nuget\\packages\\selenium.webdriver.chromedriver\\110.0.5481.3000\\selenium.webdriver.chromedriver.110.0.5481.3000.nupkg.sha512",
     "C:\\Users\\Matome.Masiya\\.nuget\\packages\\sharpcompress\\0.23.0\\sharpcompress.0.23.0.nupkg.sha512",
     "C:\\Users\\Matome.Masiya\\.nuget\\packages\\sharpziplib\\1.4.1\\sharpziplib.1.4.1.nupkg.sha512",
     "C:\\Users\\Matome.Masiya\\.nuget\\packages\\specflow\\3.9.40\\specflow.3.9.40.nupkg.sha512",

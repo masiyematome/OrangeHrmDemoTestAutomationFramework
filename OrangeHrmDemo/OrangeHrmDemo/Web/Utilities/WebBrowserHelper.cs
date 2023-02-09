@@ -1,12 +1,9 @@
-﻿
-
-using OpenQA.Selenium;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Edge;
+using WebDriverManager.DriverConfigs.Impl;
 
 namespace OrangeHrmDemo.Web.Utilities
 {
@@ -23,7 +20,7 @@ namespace OrangeHrmDemo.Web.Utilities
                 
                 case "chrome":
 
-                    new DriverManager().SetUpDriver(new ChromeConfig());
+                    new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
 
                     ChromeOptions chromeOptions = new ChromeOptions();
 
@@ -35,7 +32,7 @@ namespace OrangeHrmDemo.Web.Utilities
 
                 case "firefox":
 
-                    new DriverManager().SetUpDriver(new FirefoxConfig());
+                    new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
 
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
 
@@ -47,7 +44,7 @@ namespace OrangeHrmDemo.Web.Utilities
 
                 case "ie":
 
-                    new DriverManager().SetUpDriver(new InternetExplorerConfig());
+                    new WebDriverManager.DriverManager().SetUpDriver(new InternetExplorerConfig());
 
                     InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
 
@@ -60,7 +57,7 @@ namespace OrangeHrmDemo.Web.Utilities
 
                 case "edge":
 
-                    new DriverManager().SetUpDriver(new EdgeConfig());
+                    new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
 
                     EdgeOptions edgeOptions = new EdgeOptions();
 

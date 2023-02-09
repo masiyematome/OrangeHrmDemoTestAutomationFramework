@@ -10,9 +10,6 @@ C:\Users\Matome.Masiya\Documents\Coding\Automation\OrangeHrmDemoTestAutomationFr
 C:\Users\Matome.Masiya\Documents\Coding\Automation\OrangeHrmDemoTestAutomationFramework\OrangeHrmDemo\OrangeHrmDemo\bin\Debug\net6.0\nunit.engine.api.dll
 C:\Users\Matome.Masiya\Documents\Coding\Automation\OrangeHrmDemoTestAutomationFramework\OrangeHrmDemo\OrangeHrmDemo\bin\Debug\net6.0\nunit.engine.core.dll
 C:\Users\Matome.Masiya\Documents\Coding\Automation\OrangeHrmDemoTestAutomationFramework\OrangeHrmDemo\OrangeHrmDemo\bin\Debug\net6.0\testcentric.engine.metadata.dll
-C:\Users\Matome.Masiya\Documents\Coding\Automation\OrangeHrmDemoTestAutomationFramework\OrangeHrmDemo\OrangeHrmDemo\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
-C:\Users\Matome.Masiya\Documents\Coding\Automation\OrangeHrmDemoTestAutomationFramework\OrangeHrmDemo\OrangeHrmDemo\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
-C:\Users\Matome.Masiya\Documents\Coding\Automation\OrangeHrmDemoTestAutomationFramework\OrangeHrmDemo\OrangeHrmDemo\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
 C:\Users\Matome.Masiya\Documents\Coding\Automation\OrangeHrmDemoTestAutomationFramework\OrangeHrmDemo\OrangeHrmDemo\bin\Debug\net6.0\OrangeHrmDemo.deps.json
 C:\Users\Matome.Masiya\Documents\Coding\Automation\OrangeHrmDemoTestAutomationFramework\OrangeHrmDemo\OrangeHrmDemo\bin\Debug\net6.0\OrangeHrmDemo.runtimeconfig.json
 C:\Users\Matome.Masiya\Documents\Coding\Automation\OrangeHrmDemoTestAutomationFramework\OrangeHrmDemo\OrangeHrmDemo\bin\Debug\net6.0\OrangeHrmDemo.dll

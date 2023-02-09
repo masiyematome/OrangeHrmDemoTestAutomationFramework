@@ -114,19 +114,17 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                            "UserRole",
-                            "EmployeeName",
-                            "Status",
-                            "Username",
-                            "Password",
-                            "ConfirmPassword"});
+                            "userRole",
+                            "employeeName",
+                            "status",
+                            "userName",
+                            "password"});
                 table1.AddRow(new string[] {
                             "ESS",
-                            "Laura Dan",
+                            "Lisa Andrews",
                             "Enabled",
-                            "Laura D",
-                            "Laura_Dan2023",
-                            "Laura_Dan2023"});
+                            "Linda TopG",
+                            "Linda_TopG_Andrews_2023"});
 #line 11
  testRunner.When("the admin adds a new user", ((string)(null)), table1, "When ");
 #line hidden

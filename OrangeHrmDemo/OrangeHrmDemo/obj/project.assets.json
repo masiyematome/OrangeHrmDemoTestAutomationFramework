@@ -1949,7 +1949,13 @@
           "lib/net6.0/WebDriver.dll": {}
         },
         "build": {
-          "build/Selenium.WebDriver.targets": {}
+          "build/_._": {}
+        }
+      },
+      "Selenium.WebDriver.ChromeDriver/110.0.5481.3000": {
+        "type": "package",
+        "build": {
+          "build/Selenium.WebDriver.ChromeDriver.targets": {}
         }
       },
       "SharpCompress/0.23.0": {
@@ -6144,6 +6150,25 @@
         "manager/windows/selenium-manager.exe",
         "selenium.webdriver.4.8.0.nupkg.sha512",
         "selenium.webdriver.nuspec"
+      ]
+    },
+    "Selenium.WebDriver.ChromeDriver/110.0.5481.3000": {
+      "sha512": "cIAVFri/b/wOWuToNqMwPfx2j42ST3QU0+yv8JMN8+h09O5DSB/LGLWqz9FVjWr69QSODPUDUmOIDJy/cQm6WQ==",
+      "type": "package",
+      "path": "selenium.webdriver.chromedriver/110.0.5481.3000",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/DefinePropertiesChromeDriver.targets",
+        "build/Selenium.WebDriver.ChromeDriver.targets",
+        "driver/linux64/chromedriver",
+        "driver/mac64/chromedriver",
+        "driver/mac64arm/chromedriver",
+        "driver/win32/chromedriver.exe",
+        "nupkg-icon.png",
+        "selenium.webdriver.chromedriver.110.0.5481.3000.nupkg.sha512",
+        "selenium.webdriver.chromedriver.nuspec"
       ]
     },
     "SharpCompress/0.23.0": {
@@ -11109,7 +11134,7 @@
       "Microsoft.NET.Test.Sdk >= 17.0.0",
       "NUnit3TestAdapter >= 4.1.0",
       "Selenium.Support >= 4.8.0",
-      "Selenium.WebDriver >= 4.8.0",
+      "Selenium.WebDriver.ChromeDriver >= 110.0.5481.3000",
       "SpecFlow.Assist.Dynamic >= 1.4.2",
       "SpecFlow.NUnit >= 3.9.40",
       "SpecFlow.Plus.LivingDocPlugin >= 3.9.57",
@@ -11190,9 +11215,9 @@
             "target": "Package",
             "version": "[4.8.0, )"
           },
-          "Selenium.WebDriver": {
+          "Selenium.WebDriver.ChromeDriver": {
             "target": "Package",
-            "version": "[4.8.0, )"
+            "version": "[110.0.5481.3000, )"
           },
           "SpecFlow.Assist.Dynamic": {
             "target": "Package",

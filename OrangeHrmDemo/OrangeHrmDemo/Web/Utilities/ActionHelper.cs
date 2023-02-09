@@ -104,7 +104,7 @@ namespace OrangeHrmDemo.Web.Utilities
 
         }
 
-        public void HandleKeyBoardActions(IWebDriver driver,string targetAction)
+        public void PerformKeyBoardActions(IWebDriver driver,string targetAction)
         {
 
             try
@@ -117,14 +117,24 @@ namespace OrangeHrmDemo.Web.Utilities
 
                     case "arrow key down":
 
-                        actions.
-                            SendKeys(Keys.ArrowDown)
+                        actions
+                            .SendKeys(Keys.ArrowDown)
+                            .Build()
+                            .Perform();
+                   
+                        break;
+
+                    case "enter":
+
+                        actions
+                            .SendKeys(Keys.Enter)
                             .Build()
                             .Perform();
 
                         break;
 
                 }
+
 
             }
             catch(Exception ex)
