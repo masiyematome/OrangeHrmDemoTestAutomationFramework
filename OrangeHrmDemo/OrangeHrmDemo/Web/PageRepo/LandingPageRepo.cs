@@ -5,13 +5,9 @@ namespace OrangeHrmDemo.Web.PageRepo
 {
     public class LandingPageRepo
     {
-
-        private readonly IWebDriver driver;
-
         public LandingPageRepo(IWebDriver driver)
         {
 
-            this.driver = driver;
             PageFactory.InitElements(driver, this);
 
         }

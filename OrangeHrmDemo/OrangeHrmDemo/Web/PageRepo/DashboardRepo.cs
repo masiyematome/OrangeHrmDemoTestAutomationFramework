@@ -4,7 +4,6 @@ namespace OrangeHrmDemo.Web.PageRepo
 {
     public class DashboardRepo
     {
-
         public static By GetDashboardHeading()
         {
 

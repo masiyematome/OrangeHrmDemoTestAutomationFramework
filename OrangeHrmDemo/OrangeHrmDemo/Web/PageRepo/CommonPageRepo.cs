@@ -6,13 +6,10 @@ namespace OrangeHrmDemo.Web.PageRepo
 {
     public class CommonPageRepo
     {
-
-        private readonly IWebDriver driver;
         
         public CommonPageRepo(IWebDriver driver)
         {
 
-            this.driver = driver;
             PageFactory.InitElements(driver, this);
 
         }
