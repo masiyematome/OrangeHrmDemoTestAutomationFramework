@@ -49,7 +49,7 @@ namespace OrangeHrmDemo.Web.PageRepo
         public IWebElement txtSearchUsername;
 
         [FindsBy(How = How.XPath, Using = "//button[text() = ' Search ']")]
-        public IWebElement btnSearchButton;
+        public IWebElement btnSearch;
 
         [FindsBy(How = How.XPath, Using = "//span[text()[contains(.,'Found')]]")]
         public IWebElement txtRecordsFound;

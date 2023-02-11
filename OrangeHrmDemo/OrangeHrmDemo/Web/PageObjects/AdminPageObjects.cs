@@ -3,7 +3,6 @@ using OpenQA.Selenium;
 using OrangeHrmDemo.Web.PageRepo;
 using OrangeHrmDemo.Web.Support;
 using OrangeHrmDemo.Web.Utilities;
-using System.Collections;
 using System.Text.RegularExpressions;
 
 namespace OrangeHrmDemo.Web.PageObjects
@@ -62,6 +61,25 @@ namespace OrangeHrmDemo.Web.PageObjects
 
         }
 
+        public bool CheckIfThereAreUsers()
+        {
+
+            WaitHandler.WaitForElementToBeVisible(driver, adminPageRepo.GetRecordsFound, 10, 2);
+
+            string recordsFoundText = adminPageRepo.txtRecordsFound.Text;
+            int numberOfRecordsFound = int.Parse(Regex.Match(recordsFoundText, @"\d+").Value);
+
+            if (numberOfRecordsFound > 0)
+            {
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
         public string GrabAUserFromTheRecords()
         {
 
@@ -88,24 +106,14 @@ namespace OrangeHrmDemo.Web.PageObjects
 
         }
 
-        public bool CheckIfThereAreUsers()
+        public void SearchForUser(string username)
         {
 
-            WaitHandler.WaitForElementToBeVisible(driver, adminPageRepo.GetRecordsFound, 10, 2);
+            EnterData(driver, adminPageRepo.txtSearchUsername, username);
 
-            string recordsFoundText = adminPageRepo.txtRecordsFound.Text;
-            int numberOfRecordsFound = int.Parse(Regex.Match(recordsFoundText, @"\d+").Value);
+            ClickOnObject(driver, adminPageRepo.btnSearch);
 
-            if (numberOfRecordsFound > 0)
-            {
-
-                return true;
-
-            }
-
-            return false;
- 
         }
-
+   
     }
 }

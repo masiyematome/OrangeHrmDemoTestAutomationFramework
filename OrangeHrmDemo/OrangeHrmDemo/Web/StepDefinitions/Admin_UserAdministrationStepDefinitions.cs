@@ -13,16 +13,17 @@ namespace OrangeHrmDemo.Web.StepDefinitions
     {
 
         readonly LandingPageObjects landingPageObjects;
-        private UserDetails userDetails;
         readonly AdminPageObjects adminPageObjects;
+        readonly ScenarioContext scenarioContext;
+        private UserDetails? userDetails;
         readonly Common common;
-        public Admin_UserAdministrationStepDefinitions(IWebDriver driver)
+        public Admin_UserAdministrationStepDefinitions(IWebDriver driver, ScenarioContext scenarioContext)
         {
 
+            this.scenarioContext = scenarioContext;
             landingPageObjects = new LandingPageObjects(driver);
             adminPageObjects = new AdminPageObjects(driver);
             common = new Common(driver);
-            userDetails = new UserDetails();
 
         }
 
@@ -80,15 +81,18 @@ namespace OrangeHrmDemo.Web.StepDefinitions
 
             string usernameToSearchFor = adminPageObjects.GrabAUserFromTheRecords();
 
-            Console.WriteLine($"This is who we are going to search for: {usernameToSearchFor}");
-
+            scenarioContext["usernameToSearchFor"] = usernameToSearchFor;
 
         }
 
         [When(@"the admin searches for a user")]
         public void WhenTheAdminSearchesForAUser()
         {
-            throw new PendingStepException();
+
+            adminPageObjects.SearchForUser(scenarioContext["usernameToSearchFor"].ToString());
+
+            Thread.Sleep(3000);
+
         }
 
         [Then(@"the admin is presented with the details of the searched user")]
