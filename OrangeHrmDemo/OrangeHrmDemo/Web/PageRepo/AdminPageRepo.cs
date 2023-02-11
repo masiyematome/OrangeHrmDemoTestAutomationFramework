@@ -44,12 +44,28 @@ namespace OrangeHrmDemo.Web.PageRepo
 
         [FindsBy(How = How.XPath, Using = "//button[normalize-space() = 'Save']")]
         public IWebElement btnSave;
+
+        [FindsBy(How = How.CssSelector, Using = "input:not([placeholder])")]
+        public IWebElement txtSearchUsername;
+
+        [FindsBy(How = How.XPath, Using = "//button[text() = ' Search ']")]
+        public IWebElement btnSearchButton;
+
+        [FindsBy(How = How.XPath, Using = "//span[text()[contains(.,'Found')]]")]
+        public IWebElement txtRecordsFound;
         public By GetAutoCompleteDropdown => By.XPath("//div[contains(@class,'autocomplete-dropdown')]");
 
         public IWebElement GetAdminPageDropdownOptions(string option)
         {
 
             return driver.FindElement(By.XPath($"//div[@role='option']//span[contains(text(),'{option}')]"));
+
+        }
+
+        public By GetRecordsFound()
+        {
+
+            return By.XPath("//span[text()[contains(.,'Found')]]");
 
         }
 

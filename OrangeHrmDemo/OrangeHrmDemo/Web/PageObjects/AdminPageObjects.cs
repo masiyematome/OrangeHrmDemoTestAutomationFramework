@@ -2,6 +2,7 @@
 using OrangeHrmDemo.Web.PageRepo;
 using OrangeHrmDemo.Web.Support;
 using OrangeHrmDemo.Web.Utilities;
+using System.Text.RegularExpressions;
 
 namespace OrangeHrmDemo.Web.PageObjects
 {
@@ -57,6 +58,24 @@ namespace OrangeHrmDemo.Web.PageObjects
                 Console.WriteLine(ex.Message);
             }
 
+        }
+
+        public bool CheckIfThereAreUsers()
+        {
+
+            WaitHandler.WaitForElementToBeVisible(driver, adminPageRepo.GetRecordsFound(), 10, 2);
+
+            string recordsFoundText = adminPageRepo.txtRecordsFound.Text;
+            int numberOfRecordsFound = int.Parse(Regex.Match(recordsFoundText, @"\d+").Value);
+
+            if (numberOfRecordsFound > 0)
+            {
+
+                return true;
+
+            }
+
+            return false;
 
         }
 

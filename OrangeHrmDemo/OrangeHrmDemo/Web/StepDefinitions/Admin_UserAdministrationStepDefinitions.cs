@@ -76,7 +76,9 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         [Given(@"there are existing users in the database")]
         public void GivenThereAreExistingUsersInTheSystem()
         {
-            throw new PendingStepException();
+
+          
+            
         }
 
         [When(@"the admin searches for a user")]
