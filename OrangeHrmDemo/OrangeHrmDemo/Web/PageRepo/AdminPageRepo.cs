@@ -53,7 +53,12 @@ namespace OrangeHrmDemo.Web.PageRepo
 
         [FindsBy(How = How.XPath, Using = "//span[text()[contains(.,'Found')]]")]
         public IWebElement txtRecordsFound;
+
+        [FindsBy(How = How.XPath, Using = "//div[@role='cell'][2]")]
+        public IList<IWebElement> listOfUsernames;
         public By GetAutoCompleteDropdown => By.XPath("//div[contains(@class,'autocomplete-dropdown')]");
+        public By GetRecordsFound => By.XPath("//span[text()[contains(.,'Found')]]");
+
 
         public IWebElement GetAdminPageDropdownOptions(string option)
         {
@@ -62,12 +67,7 @@ namespace OrangeHrmDemo.Web.PageRepo
 
         }
 
-        public By GetRecordsFound()
-        {
-
-            return By.XPath("//span[text()[contains(.,'Found')]]");
-
-        }
+        
 
     }
 

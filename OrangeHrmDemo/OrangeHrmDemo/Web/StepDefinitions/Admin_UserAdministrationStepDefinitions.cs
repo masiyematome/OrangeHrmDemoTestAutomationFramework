@@ -4,6 +4,7 @@ using TechTalk.SpecFlow;
 using OrangeHrmDemo.Web.resources;
 using TechTalk.SpecFlow.Assist;
 using OrangeHrmDemo.Web.Support;
+using NUnit.Framework;
 
 namespace OrangeHrmDemo.Web.StepDefinitions
 {
@@ -77,8 +78,11 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         public void GivenThereAreExistingUsersInTheSystem()
         {
 
-          
-            
+            string usernameToSearchFor = adminPageObjects.GrabAUserFromTheRecords();
+
+            Console.WriteLine($"This is who we are going to search for: {usernameToSearchFor}");
+
+
         }
 
         [When(@"the admin searches for a user")]
