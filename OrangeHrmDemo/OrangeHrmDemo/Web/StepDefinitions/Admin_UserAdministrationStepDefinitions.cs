@@ -5,6 +5,7 @@ using OrangeHrmDemo.Web.resources;
 using TechTalk.SpecFlow.Assist;
 using OrangeHrmDemo.Web.Support;
 using NUnit.Framework;
+using AventStack.ExtentReports;
 
 namespace OrangeHrmDemo.Web.StepDefinitions
 {
@@ -16,14 +17,16 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         readonly AdminPageObjects adminPageObjects;
         readonly ScenarioContext scenarioContext;
         private UserDetails? userDetails;
+        private ExtentTest node;
         readonly Common common;
-        public Admin_UserAdministrationStepDefinitions(IWebDriver driver, ScenarioContext scenarioContext)
+        public Admin_UserAdministrationStepDefinitions(IWebDriver driver, ScenarioContext scenarioContext,ExtentTest node)
         {
 
-            this.scenarioContext = scenarioContext;
             landingPageObjects = new LandingPageObjects(driver);
             adminPageObjects = new AdminPageObjects(driver);
+            this.scenarioContext = scenarioContext;
             common = new Common(driver);
+            this.node = node;
 
         }
 
@@ -91,14 +94,14 @@ namespace OrangeHrmDemo.Web.StepDefinitions
 
             adminPageObjects.SearchForUser(scenarioContext["usernameToSearchFor"].ToString());
 
-            Thread.Sleep(3000);
-
         }
 
         [Then(@"the admin is presented with the details of the searched user")]
         public void ThenTheAdminIsPresentedWithTheDetailsOfTheSearchedUser()
         {
-            throw new PendingStepException();
+
+            adminPageObjects.ValidateSearchWasSuccessful(node);
+
         }
 
         [When(@"the admin deletes a user")]

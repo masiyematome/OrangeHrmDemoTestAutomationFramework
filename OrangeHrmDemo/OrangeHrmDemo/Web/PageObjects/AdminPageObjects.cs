@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using AventStack.ExtentReports;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OrangeHrmDemo.Web.PageRepo;
 using OrangeHrmDemo.Web.Support;
@@ -114,6 +115,48 @@ namespace OrangeHrmDemo.Web.PageObjects
             ClickOnObject(driver, adminPageRepo.btnSearch);
 
         }
+
+        public void ValidateSearchWasSuccessful(ExtentTest node)
+        {
+
+            try
+            {
+
+                WaitHandler.WaitForElementToBeVisible(driver, adminPageRepo.GetRecordsFound, 10, 2);
+
+                foreach (IWebElement usernameFromRecords in adminPageRepo.listOfUsernames)
+                {
+
+                    Console.WriteLine(adminPageRepo.txtSearchUsername.GetAttribute("value"));
+
+                    if (usernameFromRecords.Text.Equals(adminPageRepo.txtSearchUsername.GetAttribute("value")))
+                    {
+
+                        node.Pass("Search was successful", ExtentReportsHelper.TakeScreenshot(driver));
+
+                    }
+                    else
+                    {
+
+                        node.Fail("Search was unsuccessful", ExtentReportsHelper.TakeScreenshot(driver));
+                        Assert.Fail("Search was unsuccessful");
+
+                    }
+
+                }
+
+            }
+            catch(Exception ex)
+            {
+
+                Console.WriteLine(("Search was unsuccessful: " + ex.Message));
+
+                Assert.Fail("Search was unsuccessful");
+
+            }
+           
+        }
    
     }
+
 }
