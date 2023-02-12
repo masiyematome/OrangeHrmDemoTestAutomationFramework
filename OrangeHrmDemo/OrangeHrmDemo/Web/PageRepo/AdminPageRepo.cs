@@ -56,9 +56,14 @@ namespace OrangeHrmDemo.Web.PageRepo
 
         [FindsBy(How = How.XPath, Using = "//div[@role='cell'][2]")]
         public IList<IWebElement> listOfUsernames;
+
+        [FindsBy(How = How.XPath, Using = "//i[contains(@class,'trash')]//parent::button")]
+        public IWebElement btnDelete;
+
+        [FindsBy(How = How.XPath, Using = "//*[text()[contains(.,'Yes')]]")]
+        public IWebElement btnDeleteConfirm;
         public By GetAutoCompleteDropdown => By.XPath("//div[contains(@class,'autocomplete-dropdown')]");
         public By GetRecordsFound => By.XPath("//span[text()[contains(.,'Found')]]");
-
 
         public IWebElement GetAdminPageDropdownOptions(string option)
         {

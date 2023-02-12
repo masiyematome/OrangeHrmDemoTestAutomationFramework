@@ -68,9 +68,8 @@ namespace OrangeHrmDemo.Web.PageObjects
             WaitHandler.WaitForElementToBeVisible(driver, adminPageRepo.GetRecordsFound, 10, 2);
 
             string recordsFoundText = adminPageRepo.txtRecordsFound.Text;
-            int numberOfRecordsFound = int.Parse(Regex.Match(recordsFoundText, @"\d+").Value);
 
-            if (numberOfRecordsFound > 0)
+            if (!recordsFoundText.Contains("No"))
             {
 
                 return true;
@@ -127,8 +126,6 @@ namespace OrangeHrmDemo.Web.PageObjects
                 foreach (IWebElement usernameFromRecords in adminPageRepo.listOfUsernames)
                 {
 
-                    Console.WriteLine(adminPageRepo.txtSearchUsername.GetAttribute("value"));
-
                     if (usernameFromRecords.Text.Equals(adminPageRepo.txtSearchUsername.GetAttribute("value")))
                     {
 
@@ -155,6 +152,52 @@ namespace OrangeHrmDemo.Web.PageObjects
 
             }
            
+        }
+
+        public void DeleteRecord(string usernameToDelete)
+        {
+
+            try
+            {
+                SearchForUser(usernameToDelete);
+
+                WaitHandler.WaitForElementToBeVisible(driver, adminPageRepo.GetRecordsFound, 10, 2);
+
+                ClickOnObject(driver, adminPageRepo.btnDelete);
+
+                WaitHandler.WaitForElementToBeClickable(driver,adminPageRepo.btnDeleteConfirm,10,2);
+
+                ClickOnObject(driver, adminPageRepo.btnDeleteConfirm);
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+
+            }
+ 
+        }
+
+        public void ValidateDeleteWasSuccessful(ExtentTest node)
+        {
+
+
+
+            if (!CheckIfThereAreUsers())
+            {
+
+                node.Pass("User deleted successfully..", ExtentReportsHelper.TakeScreenshot(driver));
+
+            }
+            else
+            {
+
+                node.Fail("User not deleted..", ExtentReportsHelper.TakeScreenshot(driver));
+                Assert.Fail("User not deleted");
+
+            }
+
         }
    
     }

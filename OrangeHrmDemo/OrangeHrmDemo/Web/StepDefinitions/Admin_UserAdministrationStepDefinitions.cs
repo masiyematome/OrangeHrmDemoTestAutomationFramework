@@ -107,13 +107,21 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         [When(@"the admin deletes a user")]
         public void WhenTheAdminDeletesAUser()
         {
-            throw new PendingStepException();
+
+            string usernameToDelete = adminPageObjects.GrabAUserFromTheRecords();
+
+            adminPageObjects.DeleteRecord(usernameToDelete);
+
         }
 
         [Then(@"the admin is presented with no user details upon searching for the deleted user")]
         public void ThenTheAdminIsPresentedWithNoUserDetailsUponSearchingForTheDeletedUser()
         {
-            throw new PendingStepException();
+
+            adminPageObjects.ValidateDeleteWasSuccessful(node);
+
         }
+
     }
+    
 }
