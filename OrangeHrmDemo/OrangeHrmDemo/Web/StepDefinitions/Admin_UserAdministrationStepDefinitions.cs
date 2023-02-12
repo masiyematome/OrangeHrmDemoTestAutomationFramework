@@ -108,7 +108,15 @@ namespace OrangeHrmDemo.Web.StepDefinitions
         public void WhenTheAdminDeletesAUser()
         {
 
-            string usernameToDelete = adminPageObjects.GrabAUserFromTheRecords();
+            string usernameToDelete;
+
+            do
+            {
+
+                usernameToDelete = adminPageObjects.GrabAUserFromTheRecords();
+
+            } while (usernameToDelete.Equals("Admin"));
+
 
             adminPageObjects.DeleteRecord(usernameToDelete);
 
